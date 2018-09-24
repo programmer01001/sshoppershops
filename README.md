@@ -40,13 +40,13 @@ this will give you a link to open your project locally using localhost
 
 type
 #### “firebase open  hosting:site”
-which  will autimatical open your project for you on the web page
+which  will automatically open your project for you on the web page
 
 
  ### Addition Information
  you can open the database through the webpage by typing this command
  #### “firebase open database” 
- which will open the database for you or you can open the jason format of database in the command line  by typing 
+ which will open the database for you or you can open the jason format of the database in the command line  by typing 
  #### “firebase database:get /user-posts-cart/ --pretty”
  
  for additional details regarding Firebase CLI commands. 
