@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Shopper Shop</title>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+<body class="grey lighten-3">
+    <div id="firebaseui-auth-container"></div>
+    <script src="fireBase.js"></script>
+    <script src="logout.js"></script>
+    <script src="cart.js"></script>
+    
+   
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="index.html" >
+        <strong class="blue-text">SShopper Shops</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="index.html">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="" >About SShopper Shops</a>
+          </li>
+
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+
+          <li class="nav-item">
+            <a href="" class="nav-link waves-effect">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link waves-effect">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item" id="uploadTag">
+            <a href="upload.html" class="nav-link border border-light rounded waves-effect">
+              <i class="fa fa-upload  mr-2"></i>
+            </a>
+          </li>
+          <li class="nav-item" id="logIn">
+            <a href="login.html" class="nav-link border border-light rounded waves-effect">
+              <i class="fa fa-sign-in mr-2"></i>Log In
+            </a>
+          </li>
+          <li class="nav-item" id="loOut">
+              <a onclick="mainApp.logout();"  class="nav-link  waves-effect"   id="emailName">
+              <i class="fa fa-sign-in mr-2"></i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+        <form class="card-body">
+            <div class="card">
+                <div class="card-body">
+            
+                    <!-- Shopping Cart table -->
+                    <div class="table-responsive">
+            
+                        <table class="table product-table">
+            
+                            <!-- Table head -->
+                            <thead class="mdb-color lighten-5">
+                                <tr>
+                                    <th></th>
+                                    <th class="font-weight-bold">
+                                        <strong>Product</strong>
+                                    </th>
+                                    <th class="font-weight-bold">
+                                        <strong>Color</strong>
+                                    </th>
+                                   
+                                    <th class="font-weight-bold">
+                                        <strong>Price</strong>
+                                    </th>
+                                    <th class="font-weight-bold">
+                                        <strong>QTY</strong>
+                                    </th>
+                                    
+                                    <th class="font-weight-bold">
+                                        <strong>Amount</strong>
+                                    </th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <!-- /.Table head -->
+            
+                            <!-- Table body -->
+                            <tbody id="cartInfo">
+            
+                                <!-- First row -->
+                               
+                                <!-- /.First row -->
+            
+            
+                                <!-- Fourth row -->
+                               
+                                <!-- Fourth row -->
+            
+                            </tbody>
+                            <tr>
+                                <td colspan="3"></td>
+                                <td>
+                                    <h4 class="mt-2">
+                                        <strong>Total</strong>
+                                    </h4>
+                                </td>
+                                <td class="text-right">
+                                    <h4 class="mt-2" >
+                                        <strong id="total_amount">$</strong>
+                                    </h4>
+                                </td>
+                                <td colspan="3" class="text-right">
+                                    <button type="button" onclick="confirmation()"class="btn btn-primary btn-rounded waves-effect waves-light">Complete purchase
+                                        <i class="fa fa-angle-right right"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <!-- /.Table body -->
+            
+                        </table>
+            
+                    </div>
+                    <!-- /.Shopping Cart table -->
+            
+                </div>
+            
+            </div>
+    
+        </form>
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    <div class="pb-4">
+      <a href="" target="">
+        <i class="fa fa-facebook mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-twitter mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-youtube mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-google-plus mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-github mr-3"></i>
+      </a>
+
+      <a href=""" target="">
+        <i class="fa fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+ 
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+ 
+  
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+  
+</body>
+
+</html>

@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Shopper Shop</title>
+  <script src="https://www.gstatic.com/firebasejs/4.8.2/firebase.js"></script>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Bootstrap core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <!-- Material Design Bootstrap -->
+  <link href="css/mdb.min.css" rel="stylesheet">
+  <!-- Your custom styles (optional) -->
+  <link href="css/style.min.css" rel="stylesheet">
+  
+  <link rel="stylesheet" href="css/sweetalert2.min.css">
+ 
+  <script src="https://www.gstatic.com/firebasejs/5.4.2/firebase.js"></script>
+
+<!-- Add additional services that you want to use -->
+
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+ 
+</head>
+
+<body class="grey lighten-3">
+    <div id="firebaseui-auth-container"></div>
+  <script src="fireBase.js"></script>
+  <script src="logout.js"></script>
+  <script src="upload.js"></script>
+   <!-- Navbar -->
+   <nav class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar">
+    <div class="container">
+
+      <!-- Brand -->
+      <a class="navbar-brand waves-effect" href="index.html" target=">
+        <strong class="blue-text">SShopper Shops</strong>
+      </a>
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link waves-effect" href="index.html">Home
+              <span class="sr-only"></span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="#" >About SShopper Shops</a>
+          </li>
+        
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons">
+          <li class="nav-item">
+            <a href="cart.html" class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"  value="Refresh" id="conId"> </span>
+              <i class="fa fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link waves-effect">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="" class="nav-link waves-effect">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+          <li class="nav-item" id="logIn">
+            <a href="login.html" class="nav-link border border-light rounded waves-effect">
+              <i class="fa fa-sign-in mr-2"></i>Log In
+            </a>
+          </li>
+          <li class="nav-item" id="loOut">
+              <a onclick="mainApp.logout();"  class="nav-link  waves-effect"  id="emailName">
+              <i class="fa fa-sign-in mr-2"></i>
+            </a>
+          </li>
+        </ul>
+
+      </div>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!--Main layout-->
+  <main class="mt-5 pt-4">
+    <div class="container wow fadeIn">
+
+      <!-- Heading -->
+      <h2 class="my-5 h2 text-begin">Add New Product</h2>
+
+      <!--Grid row-->
+      <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-8 mb-4">
+
+          <!--Card-->
+          <div class="card">
+
+            <!--Card content-->
+            <form class="card-body">
+
+              <!--Grid row-->
+              <div class="row">
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-2">
+
+                  <!--firstName-->
+                  <div class="md-form ">
+                    <input type="text" id="ProductName" class="form-control" required>
+                    <label for="firstName" class="">Product Name</label>
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+                <!--Grid column-->
+                <div class="col-md-6 mb-2">
+
+                  <!--lastName-->
+                  <div class="md-form">
+                    <input type="text" id="Price" class="form-control" placeholder="฿" required>
+                    <label for="lastName" class="">Price</label>
+                  </div>
+
+                </div>
+                <!--Grid column-->
+
+              </div>
+              <!--Grid row-->
+
+        
+
+              
+
+              <!--address-->
+              <div class="md-form mb-5">
+                <input type="text" id="Description" class="form-control" placeholder="" required>
+                <label for="address" class="">Description</label>
+              </div>
+              
+
+              <div class="row">
+                <div class="col-md-6 mb-2">
+
+                  <!--firstName-->
+                  <div class="md-form ">
+                    <input type="text" id="prtype" class="form-control" required>
+                    <label for="firstName" class="">Type</label>
+                  </div>
+  
+                </div>
+
+                <div class="col-md-6 mb-2">
+
+                  <!--firstName-->
+                  <div class="md-form ">
+                    <input type="text" id="Ribbon" class="form-control" required>
+                    <label for="firstName" class="">Ribbon</label>
+                  </div>
+  
+                </div>
+
+              </div>
+              <div class="row">
+              <div class="col-lg-4 col-md-6 mb-4">
+
+                <label for="zip" class="active">Discount</label>
+                <input type="text" class="form-control" id="dis" placeholder="%" required="" > 
+                <div class="invalid-feedback">
+                  Zip code required.
+                </div>
+
+              </div>
+
+              <div class="col-lg-4 col-md-6 mb-4">
+
+                  <label for="p" class="active">Size</label>
+                  <input type="text" class="form-control" id="siz" placeholder="" required="" > 
+                </div>
+
+                <div class="col-lg-4 col-md-6 mb-4">
+
+                    <label for="colp" class="active">Color</label>
+                    <input type="text" class="form-control" id="colo" placeholder="" required="" > 
+                  </div>
+            </div>
+              
+              <!--Grid row-->
+              <div class="md-form mb-5">
+                <input type="file" id="upload" name="upload" />
+              </div>
+              
+
+             
+             
+             
+              <hr class="mb-4">
+           
+              <button class="btn btn-primary btn-lg btn-block" onclick="prodSubmit()"  type="button">Submit</button>
+            
+            </form>
+
+          </div>
+          <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-4 mb-4">
+
+         
+         
+
+        
+
+        </div>
+        <!--Grid column-->
+
+      </div>
+      <!--Grid row-->
+
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
+
+  
+
+    <hr class="my-4">
+
+    <!-- Social icons -->
+    
+    <div class="pb-4">
+      <a href="" target="">
+        <i class="fa fa-facebook mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-twitter mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-youtube mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-google-plus mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-dribbble mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-pinterest mr-3"></i>
+      </a>
+
+      <a href="" target="">
+        <i class="fa fa-github mr-3"></i>
+      </a>
+
+      <a href=""" target="">
+        <i class="fa fa-codepen mr-3"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+
+  
+
+
+
+  </footer>
+  <!--/.Footer-->
+  
+ 
+    
+    
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  
+
+  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/sweetalert2.all.min.js"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="js/popper.min.js"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="js/mdb.min.js"></script>
+  <!-- Initializations -->
+  <script type="text/javascript">
+    // Animations initialization
+    new WOW().init();
+  </script>
+
+
+</body>
+
+</html>
