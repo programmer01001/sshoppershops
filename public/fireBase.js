@@ -1,9 +1,9 @@
 var config = {
-  apiKey: "AIzaSyAzjU3yzuNP2rLSFDfv4Hv5WkHz1jlagQk",
-  authDomain: "web-shopping-db671.firebaseapp.com",
-  databaseURL: "https://web-shopping-db671.firebaseio.com",
-  projectId: "web-shopping-db671",
-  storageBucket: "web-shopping-db671.appspot.com",
-  messagingSenderId: "355136588239"
-};
-firebase.initializeApp(config);
+    apiKey: "<API_KEY>",
+    authDomain: "<PROJECT_ID>.firebaseapp.com",
+    databaseURL: "https://<DATABASE_NAME>.firebaseio.com",
+    projectId: "<PROJECT_ID>",
+    storageBucket: "<BUCKET>.appspot.com",
+    messagingSenderId: "<SENDER_ID>",
+  };
+  firebase.initializeApp(config);
